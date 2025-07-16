@@ -43,7 +43,7 @@ Arv* libera (Arv* a){
 }
 
 
-void imprime-in (Arv* r)
+void imprime_in (Arv* r)
 {
 
 }

@@ -83,7 +83,13 @@ void libera (Lista* l)
 
 int igual (Lista* l1, Lista* l2)
 {
-
+  
+  while(l1->prox!=NULL){
+    if(l1->info!=l2->info) return 0;
+    l1=l1->prox;
+    l2=l2->prox;
+  }
+    return 1;
 }
 
 int main (void) 

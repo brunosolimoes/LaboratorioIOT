@@ -67,7 +67,16 @@ void imprime_pos (Arv* a)
 Arv* busca(Arv* a, int num){
   if(a==NULL){return NULL;} 
 
-  
+    if (a->info == num) {
+        return a;
+    }
+
+    Arv* encontrado = busca(a->esq, num);
+    if (encontrado != NULL) {
+        return encontrado;
+    }
+
+    return busca(a->dir, num);
 
   return NULL;
 }
@@ -105,8 +114,6 @@ Arv* poda(Arv* a, int num){
 int main()
 {
 
-  printf("--------Questao 2--------\n");
-
   Arv* g = cria(67,inicializa(), inicializa());
   Arv* f = cria(40,inicializa(), inicializa());
   Arv* e = cria(34,inicializa(), g);
@@ -115,19 +122,6 @@ int main()
   Arv* b = cria(05, d, e);
   Arv* a = cria(45, b, c);
 
-  printf("Pre-fixado\n");
-  imprime_pre(a);
-  printf("\n\n");
-
-  printf("In-fixado\n");
-  imprime_in(a);
-  printf("\n\n");
-
-  printf("Pos-fixado\n");
-  imprime_pos(a);
-  printf("\n\n");
-
-  printf("--------Questao 3--------\n");
 
   Arv* j = cria(31,inicializa(), inicializa());
   Arv* i = cria(66,inicializa(), inicializa());
